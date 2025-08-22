@@ -1,0 +1,63 @@
+sybase:
+  port: 60295
+  ims_service_name: "ALVFL_Splitting"
+  database: "IMS"
+  user: "dba"
+  password: "gAAAAABopgQePiEQyfHN3O9dCtWKvzZE2ed1CHGerXycfcbeYSPBcgAWG3jVUI2h574_s5wORcQp6r7m5avzONw63qvSLlPkGg=="
+
+postgres:
+  host: localhost
+  port: 5433
+  database: powerbipipeline
+  user: postgres
+  password: "gAAAAABopu2gYurxy4kJhpgGe3UjmCJ2g-CLx-saGbDneInnIUNDbE3TgkHZLrHEVix5VL334a5UEpedXRrhRhLF0Np3hwyfCw=="
+  
+queries:
+  - name: "sp_custom_powerbi_billing_incremental_export"
+    arguments: ["2025-01-01","2025-06-28"]
+    type: "procedure"
+    target_table: "staging_sp_custom_powerbi_billing_incremental_data"
+    index_prefix: pbi_idx
+    index_columns: ["bill_receipt_unique_tran_id"]
+    
+  # - name: "sp_custom_powerbi_billing_analytics_rejection_incremental_data"
+  #   arguments:  ["''","''"]
+  #   type: "procedure"
+  #   target_table: "staging_powerbi_rejection_data_incremental"
+  #   index_prefix: pbi_idx_rejection
+  #   index_columns: ["bill_receipt_unique_tran_id"]
+    
+  # - name: "sp_custom_powerbi_billing_analytics_rvu_incremental_data"
+  #   arguments:  ["''","''"]
+  #   type: "procedure"
+  #   target_table: "staging_powerbi_rvu_incremental_data"
+  #   index_prefix: pbi_idx_rvu
+  #   index_columns: ["bill_receipt_unique_tran_id"]
+    
+  # - name: "sp_custom_powerbi_billing_analytics_ins_payment_days_incremental_data"
+  #   arguments:  ["''","''"]
+  #   type: "procedure"
+  #   target_table: "staging_powerbi_inspay_days_incremental_data"
+  #   index_prefix: pbi_idx_inspay_days
+  #   index_columns: ["bill_receipt_unique_tran_id"]
+ 
+
+postgres_procedures:
+  - schema: public
+    name: powerBI_Billing_Analytics_sync_main_tables
+    arguments: []  # or ["arg1", "arg2"]
+
+
+email:
+  block_name: etl-smtp-creds
+  subject: "Power BI Incremental Daily Report"
+  recipients:
+    - utkarshg@meditab.com
+
+  smtp:
+    server: smtp.gmail.com
+    port: 587
+    username: datatransfer@meditab.com
+    password: gAAAAABm8Z78B6qQ4He7Rx1Nslnd04hSPILtuCHGlQzseG12eJqIm6uf7GAq9WmSVP22vuUDGhdOF4KXaJtnIPzN122s6zz346C-bbDYapNq7j4gIhbKfj0=
+
+
