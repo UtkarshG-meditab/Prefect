@@ -1,0 +1,51 @@
+{
+  "server_config": {
+    "ims_service_name": "ALVFL_Splitting",
+    "ims_db_name": "IMS",
+    "ims_db_user_name": "DBA",
+    "ims_db_password": "gAAAAABorECQoDWGMa3KSGq9aRkjRm_JYnHrkeG5M81DM96lf8iKBeQqpAbHit-L3kItW_CvfJQZhO3LyX3bAE5BT3B6PeHHlg==",
+    "Driver_name": "SQL Anywhere 17",
+    "folder_path": "\\\\hvdcauto2\\utkarsh\\Custom_Interface_using_Prefect\\Test\\Export\\",
+    "backup_path": "\\\\hvdcauto2\\utkarsh\\Custom_Interface_using_Prefect\\Test\\backup\\",
+    "file_transfer_using_SFTP": "Y"
+  },
+  "script_config": {
+    "execution_order": ["procedures","views"],
+    "from_date": "Today-365",
+    "to_date": "Today",
+    "allow_empty_export": "Y",
+    "date_format": "%m-%d-%Y",
+    "extension": "csv",
+    "file_name_separator": "__",
+    "encrypt_files": "N",
+    "pgp_key_file_path": "C:\\Users\\krutika\\Documents\\Interface_Utility_Test\\test_public.asc",
+    "procedures": {
+      
+    },
+    "views": {
+	"test_Q_reviews_export": "v_custom_Patient_Daily_Checkins_Q_Review_Interface"
+    },
+    "quote_style": "\"",
+    "separator": "|"
+  },
+  "sftp_config": {
+    "hostname": "65.160.224.179",
+    "username": "DCTEAM2",
+    "sftp_password": "gAAAAABorD92euFkEvJdaPum9acCHpI2SLu8gyJDk_5fCpBAZ9MdSDvNmshLAcJKTF3B_xBRgXS08OfhoRwvnjjuca2eHpoz7Q==",
+    "port": 22,
+    "PPK_file_path": "",
+    "remotedirectory": "/Utkarsh/Prefect/Custom_interface_using_prefect_test_export/"
+  },
+  "email_config": {
+    "email_recipients": "utkarshg@meditab.com",
+    "interface_name": "TEST",
+    "client_name": "TEST_CLIENT",
+    "send_when_successful": "Y",
+    "total_file_count": "1",
+    "smtp_encrypted_password": "gAAAAABm8Z78B6qQ4He7Rx1Nslnd04hSPILtuCHGlQzseG12eJqIm6uf7GAq9WmSVP22vuUDGhdOF4KXaJtnIPzN122s6zz346C-bbDYapNq7j4gIhbKfj0=",
+    "smtp_username": "datatransfer@meditab.com",
+    "email_smtp": "smtp.gmail.com",
+    "email_port": 587,
+    "email_sender": "datatransfer@meditab.com"
+  }
+}
